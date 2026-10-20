@@ -29,10 +29,11 @@ jobs:
       pull-requests: read
     strategy:
       matrix:
-        dtk:
+        build_variant: [standard, shca, rpc]
+        # include 项与公共轴交叉合并, 共 1 x 3 = 3 个任务
+        include:
           - dtk_version: "26.10"
             py: "3.12"
-        build_variant: [standard, shca, rpc]
     env:
       CI: "false"
       FREE_BUILD_DIR: "0"
